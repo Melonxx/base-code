@@ -1,37 +1,4 @@
 var methods = {
-  getUrlParm(parm) {
-    var paraArr = location.search.substring(1).split('&')
-    for (var i = 0; i < paraArr.length; i++) {
-      if (parm == paraArr[i].split('=')[0]) {
-        return paraArr[i].split('=')[1]
-      }
-    }
-    return null;
-  },
-  setCookie(cname, cvalue, exdays) {
-    var d = new Date()
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000))
-    var expires = "expires=" + d.toGMTString()
-    document.cookie = cname + "=" + cvalue + "; " + expires
-  },
-  getCookie(cname) {
-    var name = cname + "="
-    var ca = document.cookie.split(';')
-    for (var i = 0; i < ca.length; i++) {
-      var c = ca[i].trim()
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return ""
-  },
-  clearCookie() {
-    var keys = document.cookie.match(/[^ =;]+(?=\=)/g)
-    if (keys) {
-      for (var i = keys.length; i--;)
-        document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
-    }
-  },
   testIdCard(value) {
     var aCity = {
       11: "北京",
